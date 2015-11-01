@@ -12,6 +12,7 @@ button {
     border-radius: 3px;
     background-color: #3B8BFE;
     color: white;
+    cursor: pointer;
   }
 
 button:hover {
@@ -19,23 +20,24 @@ button:hover {
 }
 
 .logo {
-  background-image: url(../images/instagram-logo.jpg);
+  background-image: url(../images/instagram_logo.png);
   background-size: contain;
   background-repeat: no-repeat;
   width: 500px;
   height: 150px;
-  margin-left: 35%;
-  margin-top: 5px;
-  margin-bottom: 10px;
+  margin-left: 30%;
+  margin-top: 20px;
 }
 
 .homeContainer {
-
+  cursor: pointer;
+  margin-top: -20px;
 
 }
 
 .thumbnail-list {
   margin-left: 9%;
+  margin-bottom: 50px;
 
 }
 .thumbnail {
@@ -70,11 +72,50 @@ button:hover {
 
     input {
       width: 400px;
+      border: 1px solid #DFDFDF;
     }
 
     textarea {
       width: 500px;
       height: 150px;
+      border: 1px solid #DFDFDF;
     }
+  }
+}
+
+.fullImage {
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  border: 1px solid #272822;
+  text-align: center;
+  cursor: pointer;
+  float: left;
+  margin: 20px 0px 5px 22%;
+
+  img {
+    height: 100%;
+  }
+}
+
+.imageText {
+  width: 400px;
+  float: right;
+  margin-right: 22%;
+  margin-left: 0;
+  margin-top: 10px;
+
+
+  ul {
+    list-style: none;
+    text-align: left;
+    padding: 0;
+    margin-left: 0;
+
+    li {
+      margin-top: 5px;
+      
+    }
+
   }
 }

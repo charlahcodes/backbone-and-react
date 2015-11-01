@@ -6,10 +6,6 @@ export default React.createClass({
     this.props.onHomeClick();
   },
 
-  detailsClickHandler() {
-    this.props.onDetailsClick();
-  },
-
   addClickHandler() {
     this.props.onAddClick();
   },
@@ -27,7 +23,6 @@ export default React.createClass({
       <div>
         <div className="thumbnail" onClick={this.clickHandler}>
           <img src={this.props.src}/>
-
         </div>
       </div>
     );

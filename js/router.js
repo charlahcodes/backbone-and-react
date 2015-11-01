@@ -3,6 +3,7 @@ import $ from 'jquery';
 import ReactDom from 'react-dom';
 import React from 'react';
 
+import DetailsPage from './views/detailspage'
 import PhotosCollection from './photos-collection.js';  
 import PhotoModel from './newphoto-model.js';
 import AddComponent from './views/add';
@@ -46,11 +47,8 @@ let Router = Backbone.Router.extend({
         <ThumbnailList 
           onThumbnailSelect={this.selectImage.bind(this)} 
           data={this.photos.toJSON()}
-          onHomeClick={() => this.goto('')}
-          onDetailsClick={() => this.goto('details')}
           onAddClick={() => this.goto('add')}
           onEditClick={() => this.goto('edit')}
-          onSubmitClick={() => this.goto('')}
         />
       );
     });
@@ -58,7 +56,21 @@ let Router = Backbone.Router.extend({
 
 
   selectImage(id) {
+    let image = this.photos.toJSON().find(item => item.objectId === id);
     this.navigate('images/' + id, {trigger: true});
+
+    this.render(
+        <DetailsPage
+          onHomeClick={() => this.goto('')}
+          onThumbnailSelect={this.selectImage.bind(this)} 
+          onAddClick={() => this.goto('add')}
+          onEditClick={() => this.goto('edit')}
+          src={image.photoURL}
+          imageTitle={image.title}
+          imageActor={image.photographer}
+          imageDescription={image.description}
+        />
+      )
   },
 
   showImage(id) {
@@ -71,7 +83,6 @@ let Router = Backbone.Router.extend({
     this.render(
       <AddComponent
       onHomeClick={() => this.goto('')}
-      onDetailsClick={() => this.goto('details')}
       onAddClick={() => this.goto('add')}
       onEditClick={() => this.goto('edit')}
       onSubmitClick={() => this.goto('')}
@@ -80,7 +91,8 @@ let Router = Backbone.Router.extend({
 
     $('#submit').click(function() {
       var newPhoto = new PhotoModel ({
-        photographer: $('#photographer').val(),
+        title: $('#character').val(),
+        photographer: $('#portrayed').val(),
         photoURL: $('#photoURL').val(),
         description: $('#description').val(),
       });
