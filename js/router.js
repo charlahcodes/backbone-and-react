@@ -1,27 +1,30 @@
-import $ from 'jquery';
 import Backbone from 'backbone';
-import React from 'react';
+import $ from 'jquery';
 import ReactDom from 'react-dom';
+import React from 'react';
 
+import PhotosCollection from './photos-collection.js';  
 import PhotoModel from './newphoto-model.js';
-import HomeComponent from './views/home';
-import DetailComponent from './views/detail';
 import AddComponent from './views/add';
 import EditComponent from './views/edit';
+import ThumbnailList from './views/home';
+import PreviewImage from './views/detail';
 
-
-
-export default Backbone.Router.extend({
+let Router = Backbone.Router.extend({
 
   routes: {
-    ""      : "showHome",
-    "details"  : "showDetail",
+    ""      : "home",
+    "images/:id" : "showImage",
     "add"  : "showAdd",
     "edit"  : "showEdit"
   },
 
-  initialize(appElement) {
+  initialize: function(appElement) {
     this.el = appElement;
+
+    this.photos = new PhotosCollection();
+
+    let router = this;
   },
 
   goto(route) {
@@ -34,31 +37,34 @@ export default Backbone.Router.extend({
     ReactDom.render(component, this.el);
   },
 
-  start() {
-    Backbone.history.start();
-    return this;
+  home() {
+
+    
+    
+    this.photos.fetch().then(() => {
+      this.render(
+        <ThumbnailList 
+          onThumbnailSelect={this.selectImage.bind(this)} 
+          data={this.photos.toJSON()}
+          onHomeClick={() => this.goto('')}
+          onDetailsClick={() => this.goto('details')}
+          onAddClick={() => this.goto('add')}
+          onEditClick={() => this.goto('edit')}
+          onSubmitClick={() => this.goto('')}
+        />
+      );
+    });
   },
 
-  showHome() {
-    this.render(
-      <HomeComponent
-      onHomeClick={() => this.goto('')}
-      onDetailsClick={() => this.goto('details')}
-      onAddClick={() => this.goto('add')}
-      onEditClick={() => this.goto('edit')}
-      />
-    );
+
+  selectImage(id) {
+    this.navigate('images/' + id, {trigger: true});
   },
 
-  showDetail() {
-    this.render(
-      <DetailComponent
-      onHomeClick={() => this.goto('')}
-      onDetailsClick={() => this.goto('details')}
-      onAddClick={() => this.goto('add')}
-      onEditClick={() => this.goto('edit')}
-      />
-    );
+  showImage(id) {
+    let image = this.photos.toJSON().find(item => item.objectId === id);
+
+    ReactDom.render(<PreviewImage src={image.photoURL}/>, this.el);
   },
 
   showAdd() {
@@ -73,7 +79,6 @@ export default Backbone.Router.extend({
     );
 
     $('#submit').click(function() {
-      console.log("test");
       var newPhoto = new PhotoModel ({
         photographer: $('#photographer').val(),
         photoURL: $('#photoURL').val(),
@@ -94,4 +99,10 @@ export default Backbone.Router.extend({
     );
   },
 
+  start: function() {
+    Backbone.history.start();
+  }
+
 });
+
+export default Router;

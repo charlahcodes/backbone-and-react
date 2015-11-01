@@ -2025,6 +2025,53 @@ html {
   content: ""; }
 
 body {
-  background: #e2ebf3; }
+  text-align: center; }
+
+button {
+  margin: 0 10px;
+  border: 1px solid #2E4C3F;
+  border-radius: 3px;
+  background-color: #3B8BFE;
+  color: white; }
+
+button:hover {
+  background-color: #6ECA94; }
+
+.logo {
+  background-image: url(../images/instagram-logo.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 500px;
+  height: 150px;
+  margin-left: 35%;
+  margin-top: 5px;
+  margin-bottom: 10px; }
+
+.thumbnail-list {
+  margin-left: 9%; }
+
+.thumbnail {
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  border: 1px solid #272822;
+  text-align: center;
+  cursor: pointer;
+  float: left;
+  margin: 5px; }
+  .thumbnail img {
+    height: 100%; }
+
+.formContainer ul {
+  list-style: none;
+  margin-left: 28%; }
+  .formContainer ul li {
+    padding: 5px;
+    text-align: left; }
+  .formContainer ul input {
+    width: 400px; }
+  .formContainer ul textarea {
+    width: 500px;
+    height: 150px; }
 
 /*# sourceMappingURL=main.css.map */

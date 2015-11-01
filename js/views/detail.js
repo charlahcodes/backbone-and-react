@@ -18,14 +18,17 @@ export default React.createClass({
     this.props.onEditClick();
   },
 
+  clickHandler(event) {
+    this.props.onSelect(this.props.id);
+  },
+
   render() {
     return (
       <div>
-        Details
-        <button onClick={this.homeClickHandler}>Home</button>
-        <button onClick={this.detailsClickHandler}>Details</button>
-        <button onClick={this.addClickHandler}>Add</button>
-        <button onClick={this.editClickHandler}>Edit</button>
+        <div className="thumbnail" onClick={this.clickHandler}>
+          <img src={this.props.src}/>
+
+        </div>
       </div>
     );
   }

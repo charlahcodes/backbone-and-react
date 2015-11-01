@@ -21,11 +21,8 @@ export default React.createClass({
   render() {
     return (
       <div>
-        Edit
         <button onClick={this.homeClickHandler}>Home</button>
-        <button onClick={this.detailsClickHandler}>Details</button>
         <button onClick={this.addClickHandler}>Add</button>
-        <button onClick={this.editClickHandler}>Edit</button>
       </div>
     );
   }
