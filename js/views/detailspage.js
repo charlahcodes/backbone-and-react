@@ -24,6 +24,7 @@ export default React.createClass({
         <div className="buttons">
           <button onClick={this.homeClickHandler}>Home</button>
           <button onClick={this.addClickHandler}>Add</button>
+          <button onClick={this.editClickHandler}>Edit</button>
         </div>
         <div className="fullImage">
           <img src={this.props.src}/>

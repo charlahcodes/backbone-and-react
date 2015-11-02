@@ -32,12 +32,14 @@ button:hover {
 .homeContainer {
   cursor: pointer;
   margin-top: -20px;
+  padding-bottom: 20px;
 
 }
 
 .thumbnail-list {
   margin-left: 9%;
-  margin-bottom: 50px;
+  margin-bottom: 400px;
+  padding-bottom: 120px;
 
 }
 .thumbnail {
@@ -58,6 +60,7 @@ button:hover {
 }
 
 .formContainer {
+  margin-bottom: 122px;
   
 
   ul {
@@ -91,7 +94,7 @@ button:hover {
   text-align: center;
   cursor: pointer;
   float: left;
-  margin: 20px 0px 5px 22%;
+  margin: 20px 0px 120px 22%;
 
   img {
     height: 100%;
@@ -117,5 +120,21 @@ button:hover {
       
     }
 
+  }
+}
+
+.footer {
+  background-color: #255F8B;
+  width: 100%;
+  height: 40px;
+  clear: both;
+  color: white;
+  margin-top: 10px;
+  font-size: 14px;
+  bottom: 0;
+
+
+  div {
+    padding-top: 12px;
   }
 }

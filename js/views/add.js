@@ -6,18 +6,6 @@ export default React.createClass({
     this.props.onHomeClick();
   },
 
-  detailsClickHandler() {
-    this.props.onDetailsClick();
-  },
-
-  addClickHandler() {
-    this.props.onAddClick();
-  },
-
-  editClickHandler() {
-    this.props.onEditClick();
-  },
-
   submitClickHandler() {
     this.props.onSubmitClick();
   },
@@ -26,7 +14,6 @@ export default React.createClass({
     return (
       <div>
         <button onClick={this.homeClickHandler}>Home</button>
-        <button onClick={this.editClickHandler}>Edit</button>
 
         <div className="formContainer">
           <form>

@@ -307,18 +307,6 @@ exports["default"] = _react2["default"].createClass({
     this.props.onHomeClick();
   },
 
-  detailsClickHandler: function detailsClickHandler() {
-    this.props.onDetailsClick();
-  },
-
-  addClickHandler: function addClickHandler() {
-    this.props.onAddClick();
-  },
-
-  editClickHandler: function editClickHandler() {
-    this.props.onEditClick();
-  },
-
   submitClickHandler: function submitClickHandler() {
     this.props.onSubmitClick();
   },
@@ -331,11 +319,6 @@ exports["default"] = _react2["default"].createClass({
         "button",
         { onClick: this.homeClickHandler },
         "Home"
-      ),
-      _react2["default"].createElement(
-        "button",
-        { onClick: this.editClickHandler },
-        "Edit"
       ),
       _react2["default"].createElement(
         "div",
@@ -475,6 +458,11 @@ exports["default"] = _react2["default"].createClass({
           "button",
           { onClick: this.addClickHandler },
           "Add"
+        ),
+        _react2["default"].createElement(
+          "button",
+          { onClick: this.editClickHandler },
+          "Edit"
         )
       ),
       _react2["default"].createElement(
@@ -530,20 +518,20 @@ exports["default"] = _react2["default"].createClass({
 module.exports = exports["default"];
 
 },{"react":171}],9:[function(require,module,exports){
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, '__esModule', {
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-exports['default'] = _react2['default'].createClass({
-  displayName: 'edit',
+exports["default"] = _react2["default"].createClass({
+  displayName: "edit",
 
   homeClickHandler: function homeClickHandler() {
     this.props.onHomeClick();
@@ -562,24 +550,61 @@ exports['default'] = _react2['default'].createClass({
   },
 
   render: function render() {
-    return _react2['default'].createElement(
-      'div',
+    return _react2["default"].createElement(
+      "div",
       null,
-      _react2['default'].createElement(
-        'button',
+      _react2["default"].createElement(
+        "button",
         { onClick: this.homeClickHandler },
-        'Home'
+        "Home"
       ),
-      _react2['default'].createElement(
-        'button',
+      _react2["default"].createElement(
+        "button",
         { onClick: this.addClickHandler },
-        'Add'
+        "Add"
+      ),
+      _react2["default"].createElement(
+        "div",
+        { className: "formContainer" },
+        _react2["default"].createElement(
+          "form",
+          null,
+          _react2["default"].createElement(
+            "ul",
+            null,
+            _react2["default"].createElement(
+              "li",
+              null,
+              _react2["default"].createElement("input", { type: "text", placeholder: "character", id: "character" })
+            ),
+            _react2["default"].createElement(
+              "li",
+              null,
+              _react2["default"].createElement("input", { type: "text", placeholder: "portrayed by", id: "portrayed" })
+            ),
+            _react2["default"].createElement(
+              "li",
+              null,
+              _react2["default"].createElement("input", { type: "text", placeholder: "photo url", id: "photoURL" })
+            ),
+            _react2["default"].createElement(
+              "li",
+              null,
+              _react2["default"].createElement("textarea", { placeholder: "description", id: "description" })
+            )
+          ),
+          _react2["default"].createElement(
+            "button",
+            { onClick: this.submitClickHandler, type: "submit", id: "submit" },
+            "Submit"
+          )
+        )
       )
     );
   }
 
 });
-module.exports = exports['default'];
+module.exports = exports["default"];
 
 },{"react":171}],10:[function(require,module,exports){
 'use strict';
